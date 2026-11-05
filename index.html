@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For Czamel 💗</title>
+<meta name="theme-color" content="#ffd3e4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="fx" aria-hidden="true"></div>
+<canvas id="confetti" aria-hidden="true"></canvas>
+<div class="meter" id="meter" hidden><span>😊 Smile meter</span><span class="bar"><i id="meterBar"></i></span><b id="meterPct">0%</b></div>
+
+<main>
+  <!-- 1. Opening + main question -->
+  <section id="ask" class="card">
+    <div class="bow" aria-hidden="true">🎀</div>
+    <h1>Hey, you! 🎀</h1>
+    <p class="lead">I made something little for you. It may not be much, but I hope it makes you smile.</p>
+    <p class="lead">I have a tiny question, and I really want you to answer honestly. 💗</p>
+    <p class="big">Can I be one of the reasons you smile every day? 🌷</p>
+    <div class="btns">
+      <button id="yes" class="btn yes" type="button">YES, YOU CAN! 💗</button>
+      <button id="no" class="btn no" type="button">NO, NOT TODAY 🙈</button>
+    </div>
+    <p id="hint" class="hint" aria-live="polite"></p>
+  </section>
+
+  <!-- 2. After YES: surprise, photo and little extras -->
+  <section id="yay" class="card" hidden>
+    <div class="bow" aria-hidden="true">🌸</div>
+    <h2>WAIT… YOU SAID YES?! 🥹💗</h2>
+    <p class="lead">Well, that just made my day.</p>
+    <div class="polwrap">
+      <figure class="polaroid" id="polaroid" tabindex="0" role="button" aria-label="Tap the photo for hearts">
+        <span class="tape t1"></span><span class="tape t2"></span>
+        <img src="czamel-liit.jpg" alt="Czamel Liit at the beach" width="720" height="900" decoding="async">
+        <figcaption>Czamel Liit 🎀</figcaption>
+      </figure>
+    </div>
+    <p class="lead">If I could send you one thing right now, it would be a little reminder that someone, even from miles away, is thinking of you and hoping you're having a beautiful day.</p>
+    <p class="lead">I may not be there beside you, but I hope my little messages can make the distance feel a little smaller.</p>
+    <p class="lead">You deserve all the pretty things in this world, especially the pink ones. 🎀</p>
+
+    <div class="lace" aria-hidden="true">❀ ❀ ❀</div>
+    <h3>Little reasons you make me smile</h3>
+    <p class="pop-text" id="reason" aria-live="polite">Tap the button for a little reason. 🎀</p>
+    <button id="reasonBtn" class="btn small" type="button">Tap for a reason 💗</button>
+
+    <div class="lace" aria-hidden="true">❀ ❀ ❀</div>
+    <h3>Pick a flower</h3>
+    <div class="row" id="flowers">
+      <button class="flower" type="button" aria-label="Pink tulip" data-note="You're gentle in all the ways that matter. 🌷">🌷</button>
+      <button class="flower" type="button" aria-label="Cherry blossom" data-note="You deserve a day full of soft, happy things. 🌸">🌸</button>
+      <button class="flower" type="button" aria-label="Hibiscus" data-note="Even this flower is a little jealous of your smile. 🌺">🌺</button>
+      <button class="flower" type="button" aria-label="Daisy" data-note="You're sunshine on a cloudy day. 🌼">🌼</button>
+      <button class="flower" type="button" aria-label="Rose" data-note="Someone is thinking of you right now. (Hi, it's me.) 🌹">🌹</button>
+    </div>
+    <p class="pop-text" id="flowerNote" aria-live="polite">Which one is yours?</p>
+
+    <div class="lace" aria-hidden="true">❀ ❀ ❀</div>
+    <h3>Open when…</h3>
+    <div class="row" id="envs">
+      <button class="env" type="button" data-note="Look up. We're under the same sky, and I'm probably thinking of you too. 💗"><b>💌</b>you miss me</button>
+      <button class="env" type="button" data-note="Take a deep breath. You did enough today. Go rest, pretty. 🎀"><b>💌</b>you had a long day</button>
+      <button class="env" type="button" data-note="Close your eyes and think of something soft and pink. Goodnight, Czamel. 🌙"><b>💌</b>you can't sleep</button>
+    </div>
+    <p class="pop-text" id="envNote" aria-live="polite">Tap an envelope.</p>
+
+    <div class="lace" aria-hidden="true">❀ ❀ ❀</div>
+    <h3>Pick a card</h3>
+    <div class="cards" id="cards">
+      <button class="pcard" type="button" aria-label="Card 1" data-note="Free hug coupon, valid anywhere in the world. Redeem it whenever we meet. 🤗"><span class="in"><span class="f">?</span><span class="b">🤗</span></span></button>
+      <button class="pcard" type="button" aria-label="Card 2" data-note="Today's mission: drink some water, then smile at nothing in particular. 💧"><span class="in"><span class="f">?</span><span class="b">💧</span></span></button>
+      <button class="pcard" type="button" aria-label="Card 3" data-note="Send me a selfie later. A pink one, if possible. 📸"><span class="in"><span class="f">?</span><span class="b">📸</span></span></button>
+    </div>
+    <p class="pop-text" id="cardNote" aria-live="polite">Choose one. No peeking.</p>
+
+    <div class="lace" aria-hidden="true">❀ ❀ ❀</div>
+    <h3>Scratch for a secret</h3>
+    <div class="scratch" id="scratch"><p>Secret: you're my favorite notification. 💗</p><canvas id="scratchCv" aria-label="Scratch here to reveal the secret"></canvas></div>
+
+    <div class="lace" aria-hidden="true">❀ ❀ ❀</div>
+    <h3>Make a wish</h3>
+    <button id="wishBtn" class="btn small" type="button">Make a wish ⭐</button>
+    <p class="pop-text" id="wishNote" aria-live="polite">Close your eyes, then tap.</p>
+
+    <div class="lace" aria-hidden="true">❀ ❀ ❀</div>
+    <p class="pop-text" id="doneNote" aria-live="polite" hidden></p>
+    <p class="big">Thank you for smiling with me today. Come back and open this anytime you want a little pink. 🌷</p>
+    <button id="again" class="btn small" type="button">More confetti! 🎉</button>
+  </section>
+</main>
+
+<footer class="foot">A little pink surprise, made just for you. From someone who's glad you exist. ♡</footer>
+<script src="script.js"></script>
+</body>
+</html>
